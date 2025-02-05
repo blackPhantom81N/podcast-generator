@@ -4,10 +4,13 @@ FROM ubuntu:latest
 RUN apt-get update && apt-get install -y \
     python3 \
     python3-pip \
-    git
+    git \
+    build-essential \
+    python3-dev \
+    libyaml-dev
 
 # Install Python packages
-RUN pip3 install PyYAML
+RUN pip3 install --no-cache-dir PyYAML
 
 # Copy Python script
 COPY feed.py /usr/bin/feed.py
